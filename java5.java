@@ -1,19 +1,20 @@
-public class java5{
-public static void main(String args[]){
+import java.io.*;
 
-int a = Integer.parseInt(args[0]);
-int b = Integer.parseInt(args[1]);
-int c = Integer.parseInt(args[2]);
+import java.net.*;
 
-if( a > b && a>c){
-System.out.println(a+" is greatest");
-}else
-if( b> c && b>a){
-System.out.println(b+ " is greatest");
-}else
-if( c > b && c>a){
-System.out.println(c+ " is greatest");
-}
-}
-}
+class java5 {
 
+    public static void main(String[] args) {
+        try {
+            Socket skt = new Socket("localhost", 14);
+            BufferedReader in = new BufferedReader(new InputStreamReader(skt.getInputStream()));
+            System.out.println("recived String");
+            System.out.println(in.readLine());
+            in.close();
+        } catch (Exception e) {
+            System.out.println("not connected" + e);
+        }
+        
+    }
+
+}
